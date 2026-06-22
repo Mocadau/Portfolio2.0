@@ -33,6 +33,344 @@
       .portfolio-back-link:hover {
         background: rgba(255, 255, 255, 0.16);
       }
+
+      .mobile-catch-input-wrap {
+        display: grid;
+        gap: 0.4rem;
+        margin: 0.85rem auto 0;
+        width: min(360px, 100%);
+      }
+
+      .mobile-catch-input-label {
+        color: rgba(229, 239, 255, 0.72);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      #mobile-catch-input {
+        width: 100%;
+        min-height: 48px;
+        border: 2px solid rgba(255, 210, 74, 0.68);
+        border-radius: 14px;
+        color: #fff8cf;
+        background: rgba(2, 6, 23, 0.74);
+        box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.34), 0 10px 24px rgba(0, 0, 0, 0.22);
+        font: 900 1.05rem Trebuchet MS, Segoe UI, system-ui, sans-serif;
+        letter-spacing: 0.14em;
+        outline: none;
+        padding: 0 1rem;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      #mobile-catch-input:focus {
+        border-color: #fff8cf;
+        box-shadow: 0 0 0 4px rgba(255, 210, 74, 0.22), inset 0 0 18px rgba(0, 0, 0, 0.34);
+      }
+
+      @media (max-width: 900px) {
+        :root {
+          --progress-height: auto;
+          --mobile-roster-height: clamp(180px, 34svh, 280px);
+        }
+
+        html,
+        body {
+          height: auto;
+          min-height: 100%;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
+        body {
+          display: block;
+          padding-right: 0;
+          padding-bottom: calc(var(--mobile-roster-height) + env(safe-area-inset-bottom, 0px));
+        }
+
+        body.modal-open {
+          overflow: hidden;
+        }
+
+        .portfolio-back-link {
+          top: max(10px, env(safe-area-inset-top, 0px));
+          left: 10px;
+          min-height: 36px;
+          padding: 0 11px;
+          font-size: 12px;
+        }
+
+        .progress-banner {
+          position: relative;
+          min-height: auto;
+          margin: 0;
+          padding: calc(3.25rem + env(safe-area-inset-top, 0px)) 1rem 0.9rem;
+        }
+
+        .progress-banner h1 {
+          font-size: clamp(1.85rem, 9vw, 2.7rem);
+          line-height: 0.98;
+        }
+
+        .progress-banner p {
+          max-width: 34ch;
+          font-size: 0.9rem;
+          line-height: 1.35;
+        }
+
+        .progress-meta {
+          gap: 0.5rem;
+        }
+
+        .progress-clock,
+        .progress-counter {
+          padding: 0.5rem 0.65rem;
+          font-size: 0.84rem;
+        }
+
+        main.map-shell {
+          height: auto;
+          min-height: 0;
+          padding: 0.65rem 0.65rem 0.8rem;
+        }
+
+        .map-board {
+          min-height: 0;
+          border-width: 3px;
+          border-radius: 18px;
+          box-shadow: 0 0 0 3px #7a4c2a, 0 0 0 5px #2e6370, 0 20px 42px rgba(0, 0, 0, 0.48);
+        }
+
+        .map-board::before {
+          border-radius: 14px;
+          inset: 6px;
+        }
+
+        .map-board::after {
+          display: none;
+        }
+
+        .map-stage,
+        #map {
+          min-height: clamp(320px, calc(100svh - var(--mobile-roster-height) - 210px), 560px);
+          height: clamp(320px, calc(100svh - var(--mobile-roster-height) - 210px), 560px);
+        }
+
+        .collection-bar {
+          height: var(--mobile-roster-height);
+          padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+        }
+
+        .collection-header {
+          gap: 0.25rem;
+          padding-bottom: 0.45rem;
+        }
+
+        .collection-header h2 {
+          font-size: 1.05rem;
+        }
+
+        .collection-list {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(132px, 42vw);
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding: 0.1rem 0.25rem 0.35rem;
+          scroll-snap-type: x proximity;
+        }
+
+        .collection-slot {
+          grid-template-columns: 46px 1fr;
+          column-gap: 0.5rem;
+          min-width: 0;
+          min-height: 64px;
+          padding: 0.32rem 0.48rem;
+        }
+
+        .collection-slot img {
+          width: 44px;
+          height: 44px;
+        }
+
+        .slot-label,
+        .slot-status {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .reset-btn {
+          right: 0.75rem;
+          bottom: calc(var(--mobile-roster-height) + 0.65rem + env(safe-area-inset-bottom, 0px));
+          padding: 0.5rem 0.95rem;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .capture-overlay {
+          align-items: start;
+          min-height: 100svh;
+          min-height: var(--visual-viewport-height, 100svh);
+          padding: max(0.45rem, env(safe-area-inset-top, 0px)) 0.45rem max(0.45rem, env(safe-area-inset-bottom, 0px));
+          overflow: auto;
+        }
+
+        .capture-shell {
+          width: 100%;
+          max-height: none;
+          min-height: min(100%, var(--visual-viewport-height, 100svh));
+          border-radius: 20px;
+          padding: 0.65rem;
+          overflow: visible;
+        }
+
+        .retro-shell::before {
+          display: none;
+        }
+
+        .modal-close {
+          top: 0.55rem;
+          right: 0.55rem;
+          min-width: 76px;
+          height: 36px;
+          border-width: 2px;
+          padding: 0 0.7rem;
+          font-size: 0.76rem;
+        }
+
+        .capture-layout {
+          gap: 0.65rem;
+          overflow: visible;
+        }
+
+        .retro-screen,
+        .capture-sidebar {
+          flex: 1 1 100%;
+          min-width: 0;
+          border-radius: 18px;
+          padding: 0.72rem;
+        }
+
+        .console-top {
+          min-height: 36px;
+          padding-right: 84px;
+          font-size: 0.58rem;
+        }
+
+        .capture-main {
+          gap: 0.62rem;
+        }
+
+        .capture-visual {
+          height: clamp(150px, 27svh, 230px);
+          border-radius: 16px;
+        }
+
+        .capture-media {
+          padding: 0.35rem;
+        }
+
+        .retro-info {
+          min-height: 0;
+          gap: 0.3rem;
+          padding: 0.7rem;
+        }
+
+        .capture-status-text {
+          min-height: 0;
+          font-size: 0.92rem;
+        }
+
+        .capture-story {
+          min-height: 0;
+          font-size: 0.88rem;
+          line-height: 1.42;
+        }
+
+        .game-section {
+          min-height: 0;
+          padding: 0.72rem;
+          border-radius: 16px;
+        }
+
+        .game-top-row {
+          align-items: start;
+          flex-direction: column;
+          gap: 0.45rem;
+        }
+
+        .timer-bar {
+          width: 100%;
+          flex: none;
+        }
+
+        .difficulty-chip,
+        .words-chip {
+          max-width: 100%;
+          overflow: hidden;
+          padding: 0.34rem 0.55rem;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .sequence-display {
+          gap: 0.34rem;
+          max-height: 92px;
+          overflow-y: auto;
+          padding: 0.1rem;
+        }
+
+        .sequence-char {
+          min-width: 28px;
+          border-radius: 8px;
+          padding: 0.3rem 0.38rem;
+          font-size: 0.92rem;
+        }
+
+        .game-feedback {
+          margin-top: 0.65rem;
+          font-size: 0.9rem;
+        }
+
+        .retro-bottom-lights,
+        .capture-sidebar {
+          display: none;
+        }
+
+        .capture-stamp {
+          min-width: min(320px, 88%);
+        }
+
+        .travel-prompt__card {
+          border-radius: 18px;
+        }
+
+        .travel-prompt__header,
+        .travel-prompt__body,
+        .travel-prompt__actions {
+          padding-left: 0.9rem;
+          padding-right: 0.9rem;
+        }
+
+        .travel-prompt__art {
+          min-height: 128px;
+        }
+
+        .travel-prompt__art img {
+          width: 124px;
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .mobile-catch-input-wrap {
+          width: min(300px, 100%);
+        }
+      }
     </style>
   </head>
   <body>
@@ -160,6 +498,19 @@
                 <span id="game-words" class="words-chip">Sequence: ???</span>
               </div>
               <div id="sequence-display" class="sequence-display" aria-live="polite"></div>
+              <div class="mobile-catch-input-wrap">
+                <label class="mobile-catch-input-label" for="mobile-catch-input">Phone keyboard input</label>
+                <input
+                  id="mobile-catch-input"
+                  type="text"
+                  inputmode="text"
+                  autocomplete="off"
+                  autocapitalize="characters"
+                  spellcheck="false"
+                  aria-label="Type the catch sequence"
+                  placeholder="Tap here and type"
+                />
+              </div>
               <div id="game-feedback" class="game-feedback info">
                 Start typing when you are ready.
               </div>
@@ -242,5 +593,86 @@
       </div>
     </div>
 
+    <script>
+      (() => {
+        const input = document.getElementById('mobile-catch-input');
+        const gameSection = document.getElementById('game-section');
+        const captureOverlay = document.getElementById('capture-overlay');
+
+        if (!input || !gameSection) {
+          return;
+        }
+
+        const setViewportHeight = () => {
+          const height = window.visualViewport?.height || window.innerHeight;
+          document.documentElement.style.setProperty('--visual-viewport-height', `${height}px`);
+        };
+
+        const isGameVisible = () => !gameSection.classList.contains('hidden');
+
+        const focusInput = () => {
+          if (!isGameVisible()) {
+            return;
+          }
+
+          input.value = '';
+          window.setTimeout(() => {
+            input.focus({ preventScroll: true });
+            input.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+          }, 80);
+        };
+
+        const sendKey = (key) => {
+          document.dispatchEvent(
+            new KeyboardEvent('keydown', {
+              key,
+              code: `Key${key}`,
+              bubbles: true,
+              cancelable: true
+            })
+          );
+        };
+
+        input.addEventListener('beforeinput', (event) => {
+          if (event.inputType === 'insertLineBreak') {
+            event.preventDefault();
+          }
+        });
+
+        input.addEventListener('input', () => {
+          const chars = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '').split('');
+          input.value = '';
+          chars.forEach(sendKey);
+        });
+
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+          }
+        });
+
+        gameSection.addEventListener('pointerdown', focusInput);
+
+        new MutationObserver(focusInput).observe(gameSection, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+
+        if (captureOverlay) {
+          new MutationObserver(() => {
+            if (!captureOverlay.classList.contains('hidden')) {
+              setViewportHeight();
+            }
+          }).observe(captureOverlay, {
+            attributes: true,
+            attributeFilter: ['class']
+          });
+        }
+
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight, { passive: true });
+        window.visualViewport?.addEventListener('resize', setViewportHeight, { passive: true });
+      })();
+    </script>
   </body>
 </html>
