@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio2-mobile-citydex.vercel.app/sitemap.xml
+Sitemap: https://mocadau.com/sitemap.xml

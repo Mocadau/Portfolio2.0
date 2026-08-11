@@ -5,7 +5,7 @@
   const loadPerform = () => import('./pages/Perform.svelte');
   const loadMigrants = () => import('./pages/Migrants.svelte');
   const loadAlignspace = () => import('./pages/Alignspace.svelte');
-  const siteUrl = 'https://portfolio2-mobile-citydex.vercel.app';
+  const siteUrl = 'https://mocadau.com';
   const socialImage = `${siteUrl}/portfolio-assets/Background/02.webp`;
 
   const routeLoaders = {
