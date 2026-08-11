@@ -2,4 +2,11 @@ node_modules/
 dist/
 .DS_Store
 *.log
+/Assets/
+public/pokemon/assets/
+public/portfolio-assets/FinalIntro/*.png
+public/portfolio-assets/Laserpointer/*.png
+src/assets/Project_background.png
+src/assets/ProjectTitles/*.png
+src/assets/PerForm/PerformBanner.png
 .vercel

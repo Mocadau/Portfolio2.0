@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="./assets/pikachu.png" />
-    <title>Pokemon Citydex Warsaw</title>
+    <title>Catch Pokémon</title>
     <script type="module" crossorigin src="./assets/index-C5u53Tes.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DSDN8Br7.css">
     <style>
@@ -366,20 +366,506 @@
         }
       }
 
-      @media (hover: hover) and (pointer: fine) {
-        .mobile-catch-input-wrap {
-          width: min(300px, 100%);
-        }
-      }
-    </style>
+          @media (hover: hover) and (pointer: fine) {
+            .mobile-catch-input-wrap {
+              width: min(300px, 100%);
+            }
+          }
+
+          :root {
+            --glass-ink: #f8fbff;
+            --glass-muted: rgba(226, 236, 255, 0.72);
+            --glass-line: rgba(255, 255, 255, 0.28);
+            --glass-panel: rgba(14, 23, 39, 0.46);
+            --glass-panel-strong: rgba(12, 18, 31, 0.72);
+            --glass-blue: #8fd7ff;
+            --glass-mint: #95f3cf;
+            --glass-gold: #ffe58a;
+            --glass-red: #ff8c8c;
+          }
+
+          body {
+            color: var(--glass-ink);
+            background:
+              radial-gradient(circle at 14% 0%, rgba(143, 215, 255, 0.26), transparent 28rem),
+              radial-gradient(circle at 82% 18%, rgba(149, 243, 207, 0.2), transparent 24rem),
+              linear-gradient(135deg, #07101f 0%, #111a2b 45%, #071018 100%);
+          }
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+              linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 32%),
+              radial-gradient(circle at 50% 100%, rgba(255, 229, 138, 0.12), transparent 34rem);
+          }
+
+          body.modal-open .portfolio-back-link {
+            display: none;
+          }
+
+          .portfolio-back-link,
+          .progress-banner,
+          .map-board,
+          .collection-bar,
+          .capture-shell,
+          .retro-screen,
+          .capture-sidebar,
+          .travel-prompt__card,
+          .reset-btn,
+          .modal-close,
+          .mobile-catch-input-wrap,
+          .game-section,
+          .retro-info,
+          .collection-slot {
+            border-color: var(--glass-line) !important;
+            background:
+              linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),
+              var(--glass-panel) !important;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+              0 24px 70px rgba(0, 0, 0, 0.36) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(1.35);
+            backdrop-filter: blur(24px) saturate(1.35);
+          }
+
+          .progress-banner {
+            border-bottom: 1px solid var(--glass-line);
+          }
+
+          .hero-kicker,
+          .map-board__eyebrow,
+          .collection-kicker,
+          .console-label,
+          .mobile-catch-input-label,
+          .pokedex-title {
+            color: var(--glass-mint) !important;
+            text-shadow: none !important;
+          }
+
+          .progress-banner h1,
+          .progress-banner h1 span,
+          .progress-banner h1 em,
+          .collection-header h2,
+          .map-board__topbar strong,
+          .sidebar-name {
+            color: var(--glass-ink) !important;
+            text-shadow: 0 10px 32px rgba(143, 215, 255, 0.24) !important;
+          }
+
+          .progress-banner p,
+          .capture-story,
+          .sidebar-hint,
+          .game-feedback.info,
+          #collection-hint {
+            color: var(--glass-muted) !important;
+          }
+
+          .progress-clock,
+          .progress-counter,
+          .map-board__status,
+          .difficulty-chip,
+          .words-chip,
+          .travel-prompt__chip {
+            color: var(--glass-ink) !important;
+            border: 1px solid rgba(255, 255, 255, 0.24) !important;
+            background: rgba(255, 255, 255, 0.12) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+          }
+
+          .map-board {
+            overflow: hidden;
+          }
+
+          .map-board::before {
+            border-color: rgba(255, 255, 255, 0.2);
+          }
+
+          .map-board::after {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 60%);
+            border-color: rgba(255, 255, 255, 0.24);
+          }
+
+          .map-board__topbar,
+          .pokedex-header,
+          .travel-prompt__header {
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            background: linear-gradient(135deg, rgba(143, 215, 255, 0.22), rgba(149, 243, 207, 0.08)) !important;
+          }
+
+          .map-stage {
+            background:
+              radial-gradient(circle at 22% 22%, rgba(149, 243, 207, 0.3), transparent 28%),
+              radial-gradient(circle at 72% 62%, rgba(143, 215, 255, 0.22), transparent 28%),
+              linear-gradient(135deg, rgba(216, 255, 224, 0.7), rgba(122, 177, 191, 0.72)) !important;
+          }
+
+          .map-stage__legend,
+          .map-stage__compass {
+            color: #0d1b2b !important;
+            border-color: rgba(255, 255, 255, 0.45) !important;
+            background: rgba(248, 251, 255, 0.76) !important;
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+          }
+
+          .collection-slot:hover,
+          .collection-slot.selected {
+            border-color: rgba(143, 215, 255, 0.62) !important;
+            background: rgba(143, 215, 255, 0.18) !important;
+            transform: translateY(-2px);
+          }
+
+          .capture-overlay,
+          .travel-prompt {
+            background:
+              radial-gradient(circle at 50% 20%, rgba(143, 215, 255, 0.2), transparent 28rem),
+              rgba(3, 6, 20, 0.72) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            backdrop-filter: blur(20px) saturate(1.3);
+          }
+
+          .capture-shell {
+            border-width: 1px;
+          }
+
+          .retro-shell::before {
+            border-color: rgba(255, 255, 255, 0.14);
+          }
+
+          .retro-screen,
+          .capture-sidebar {
+            background:
+              linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05)),
+              rgba(7, 16, 31, 0.58) !important;
+          }
+
+          .capture-visual {
+            border-color: rgba(255, 255, 255, 0.18) !important;
+            background:
+              radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.18), transparent 38%),
+              rgba(2, 8, 23, 0.48) !important;
+          }
+
+          .capture-status-text {
+            color: var(--glass-gold) !important;
+          }
+
+          .capture-status-text.is-success,
+          .game-feedback.success {
+            color: var(--glass-mint) !important;
+          }
+
+          .capture-status-text.is-error,
+          .game-feedback.error {
+            color: var(--glass-red) !important;
+          }
+
+          .sequence-char {
+            color: var(--glass-ink) !important;
+            border-color: rgba(255, 255, 255, 0.24) !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+          }
+
+          .sequence-char.active {
+            border-color: rgba(255, 229, 138, 0.8) !important;
+            background: rgba(255, 229, 138, 0.22) !important;
+          }
+
+          .sequence-char.completed {
+            border-color: rgba(149, 243, 207, 0.7) !important;
+            background: rgba(149, 243, 207, 0.18) !important;
+          }
+
+          #mobile-catch-input {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--glass-ink);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          }
+
+          #mobile-catch-input:focus {
+            border-color: rgba(143, 215, 255, 0.86);
+            box-shadow:
+              0 0 0 4px rgba(143, 215, 255, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.22);
+          }
+
+          .timer-bar {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            background: rgba(255, 255, 255, 0.12) !important;
+          }
+
+          #timer-fill {
+            background: linear-gradient(90deg, var(--glass-mint), var(--glass-gold)) !important;
+          }
+
+          .modal-close,
+          .reset-btn,
+          .secondary-btn,
+          .travel-prompt__button {
+            color: #07101f !important;
+            border-color: rgba(255, 255, 255, 0.38) !important;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(143, 215, 255, 0.7)) !important;
+          }
+
+          .travel-prompt__button--primary {
+            background: linear-gradient(135deg, rgba(149, 243, 207, 0.94), rgba(255, 229, 138, 0.78)) !important;
+          }
+
+          @media (max-width: 900px) {
+            body {
+              padding-bottom: calc(var(--mobile-roster-height) + env(safe-area-inset-bottom, 0px));
+            }
+
+            .progress-meta {
+              flex-wrap: wrap;
+            }
+          }
+
+          @media (max-width: 700px) {
+            .capture-overlay {
+              display: block;
+              align-items: initial;
+            }
+
+            .capture-shell {
+              min-height: auto;
+              margin: 0 auto;
+            }
+
+            .capture-layout {
+              display: grid;
+              grid-template-columns: 1fr;
+              align-items: start;
+              flex: none;
+            }
+
+            .retro-screen {
+              flex: none;
+            }
+
+            .game-section.hidden {
+              display: none;
+            }
+
+            .capture-sidebar {
+              display: block;
+              max-height: none;
+              min-height: 0;
+              overflow: visible;
+            }
+
+            .retro-bottom-lights {
+              display: flex;
+            }
+
+            .pokedex-grid {
+              grid-template-columns: 1fr;
+            }
+
+            .capture-visual {
+              height: clamp(170px, 30svh, 250px);
+            }
+
+            .sequence-display {
+              max-height: none;
+            }
+          }
+
+          /* Keep navigation in the document flow instead of floating over the title. */
+          .progress-banner {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+          }
+
+          .portfolio-back-link {
+            position: static;
+            inset: auto;
+            z-index: auto;
+            min-height: 38px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 24px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+          }
+
+          .hero-copy {
+            min-width: 0;
+          }
+
+          /* The encounter console always fits the visible viewport. */
+          .capture-overlay {
+            height: var(--visual-viewport-height, 100dvh);
+            min-height: 0;
+            padding: clamp(0.65rem, 1.6vh, 1.1rem);
+            overflow: hidden;
+          }
+
+          .capture-shell {
+            width: min(1200px, 100%);
+            height: min(760px, calc(var(--visual-viewport-height, 100dvh) - clamp(1.3rem, 3.2vh, 2.2rem)));
+            min-height: 0;
+            max-height: 100%;
+            padding: clamp(0.8rem, 1.5vw, 1.2rem);
+          }
+
+          .capture-layout {
+            display: grid;
+            min-height: 0;
+            grid-template-columns: minmax(0, 1fr) minmax(250px, 320px);
+            align-items: stretch;
+            overflow: hidden;
+          }
+
+          .capture-main,
+          .capture-sidebar {
+            min-width: 0;
+            min-height: 0;
+            height: 100%;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+          }
+
+          .capture-visual {
+            height: clamp(190px, 30dvh, 330px);
+          }
+
+          .retro-info {
+            min-height: 118px;
+          }
+
+          .capture-story {
+            min-height: 3.4em;
+          }
+
+          .pokedex-header {
+            position: sticky;
+            top: 0;
+            z-index: 12;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto auto;
+            gap: 0.65rem;
+            min-height: 46px;
+            margin: -0.2rem -0.2rem 0.85rem;
+            padding: 0.35rem 0.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 14px;
+          }
+
+          .modal-close {
+            position: static;
+            inset: auto;
+            min-width: 82px;
+            height: 34px;
+            padding: 0 0.75rem;
+            border-width: 1px;
+            font-size: 0.72rem;
+          }
+
+          @media (max-width: 900px) {
+            .progress-banner {
+              grid-template-columns: 1fr;
+              gap: 0.7rem;
+              padding: max(0.75rem, env(safe-area-inset-top, 0px)) 1rem 0.9rem;
+            }
+
+            .portfolio-back-link {
+              justify-self: start;
+              min-height: 38px;
+              padding-inline: 12px;
+            }
+
+            .progress-meta {
+              width: 100%;
+              justify-content: flex-start;
+            }
+          }
+
+          @media (max-width: 700px) {
+            .capture-overlay {
+              display: flex;
+              align-items: stretch;
+              padding: max(0.4rem, env(safe-area-inset-top, 0px)) 0.4rem max(0.4rem, env(safe-area-inset-bottom, 0px));
+            }
+
+            .capture-shell {
+              height: 100%;
+              max-height: 100%;
+              margin: 0 auto;
+              padding: 0.55rem;
+              overflow: hidden;
+            }
+
+            .capture-layout {
+              height: 100%;
+              grid-template-columns: 1fr;
+              grid-template-rows: auto minmax(0, 1fr);
+              grid-template-areas:
+                "pokedex"
+                "capture";
+              gap: 0.5rem;
+              align-items: stretch;
+            }
+
+            .capture-main {
+              grid-area: capture;
+              height: auto;
+              padding: 0.65rem;
+            }
+
+            .capture-sidebar {
+              grid-area: pokedex;
+              order: -1;
+              height: auto;
+              max-height: clamp(96px, 24dvh, 190px);
+              padding: 0.55rem;
+              overflow-y: auto;
+            }
+
+            .pokedex-header {
+              min-height: 42px;
+              margin: -0.1rem -0.1rem 0.45rem;
+              padding: 0.25rem 0.3rem;
+            }
+
+            .modal-close {
+              min-width: 76px;
+              height: 32px;
+              font-size: 0.68rem;
+            }
+
+            .sidebar-hint {
+              min-height: 0;
+              margin: 0.4rem 0 0;
+              font-size: 0.78rem;
+            }
+
+            .capture-visual {
+              height: clamp(145px, 24dvh, 210px);
+            }
+
+            .retro-info {
+              min-height: 0;
+            }
+          }
+        </style>
   </head>
   <body>
-    <a class="portfolio-back-link" href="/">← Get back to Portfolio</a>
-    <header class="progress-banner">
-      <div class="hero-copy">
-        <span class="hero-kicker">Trainer Travel Log</span>
-        <h1><span>Pokémon</span> Citydex <em>Warsaw</em></h1>
-        <p>Track hidden encounters, lock the Poké Ball, and complete the collection.</p>
+        <header class="progress-banner">
+          <a class="portfolio-back-link" href="/?section=work">
+            <span aria-hidden="true">←</span>
+            <span>Back to Work</span>
+          </a>
+          <div class="hero-copy">
+            <span class="hero-kicker">Liquid Glass Field Log</span>
+            <h1><span>Catch</span> Pokémon</h1>
+            <p>Find hidden encounters, hold the escape sequence, and unlock the full Citydex.</p>
       </div>
       <div class="progress-meta">
         <div id="current-time" class="progress-clock">--:--:--</div>
@@ -391,8 +877,8 @@
       <section class="map-board" aria-label="Pokemon overworld map">
         <div class="map-board__topbar">
           <div>
-            <span class="map-board__eyebrow">CITYDEX FIELD MAP</span>
-            <strong>Warsaw Region</strong>
+                <span class="map-board__eyebrow">ESCAPE FIELD MAP</span>
+                <strong>Warsaw Glass Region</strong>
           </div>
           <span class="map-board__status"><i></i> GPS ONLINE</span>
         </div>
@@ -401,7 +887,7 @@
           <div class="map-stage__texture" aria-hidden="true"></div>
           <div class="map-stage__compass" aria-hidden="true"><span>N</span></div>
           <div class="map-stage__legend" aria-hidden="true">
-            <span><i class="legend-dot legend-dot--wild"></i> Wild Pokemon</span>
+                <span><i class="legend-dot legend-dot--wild"></i> Escape target</span>
             <span><i class="legend-dot legend-dot--route"></i> Trainer route</span>
           </div>
         </div>
@@ -411,8 +897,8 @@
     <section class="collection-bar" aria-label="Your collection">
       <div class="collection-header">
         <div>
-          <span class="collection-kicker">CITYDEX STORAGE</span>
-          <h2>Pokémon Roster</h2>
+              <span class="collection-kicker">ESCAPE ARCHIVE</span>
+              <h2>Pokémon Signals</h2>
         </div>
         <span id="collection-hint"></span>
       </div>
@@ -451,11 +937,10 @@
 
     <div id="capture-overlay" class="capture-overlay hidden" aria-hidden="true">
       <div class="capture-shell retro-shell">
-        <button id="capture-close-btn" class="modal-close" aria-label="Escape">Escape</button>
         <div class="capture-layout retro-layout">
           <div class="capture-main retro-screen">
             <div class="console-top">
-              <span class="console-label">CITYDEX ADVANCE</span>
+                  <span class="console-label">ESCAPE LOCK</span>
               <span class="console-led"></span>
             </div>
             <div class="capture-visual">
@@ -482,15 +967,15 @@
             </div>
             <div class="retro-info">
               <div id="capture-status-text" class="capture-status-text">
-                Preparing the encounter...
+                    Preparing the escape...
               </div>
               <div id="capture-story" class="capture-story">
-                A sudden burst of static over Warsaw signals an Electric-type nearby.
+                    A glassy signal opens over Warsaw. Keep the Pokemon from breaking away.
               </div>
             </div>
             <div id="game-section" class="game-section hidden">
               <div class="game-top-row">
-                <span>Catch Sequence</span>
+                    <span>Escape Sequence</span>
                 <div class="timer-bar"><div id="timer-fill"></div></div>
               </div>
               <div class="game-meta">
@@ -499,7 +984,7 @@
               </div>
               <div id="sequence-display" class="sequence-display" aria-live="polite"></div>
               <div class="mobile-catch-input-wrap">
-                <label class="mobile-catch-input-label" for="mobile-catch-input">Phone keyboard input</label>
+                <label class="mobile-catch-input-label" for="mobile-catch-input">Escape input</label>
                 <input
                   id="mobile-catch-input"
                   type="text"
@@ -507,12 +992,12 @@
                   autocomplete="off"
                   autocapitalize="characters"
                   spellcheck="false"
-                  aria-label="Type the catch sequence"
-                  placeholder="Tap here and type"
+                      aria-label="Type the escape sequence"
+                      placeholder="Type the sequence"
                 />
               </div>
               <div id="game-feedback" class="game-feedback info">
-                Start typing when you are ready.
+                    Start the escape sequence when you are ready.
               </div>
             </div>
             <div class="retro-bottom-lights">
@@ -527,6 +1012,7 @@
                 <span class="dex-led"></span>
                 <span class="dex-led"></span>
               </div>
+              <button id="capture-close-btn" class="modal-close" type="button" aria-label="Close escape encounter">Escape</button>
             </div>
             <div id="sidebar-info" class="sidebar-content hidden">
               <div class="pokedex-number">No. <span id="sidebar-number">???</span></div>
@@ -584,9 +1070,9 @@
               </div>
               <p id="sidebar-entry" class="sidebar-entry">Dex data locked.</p>
             </div>
-            <p id="sidebar-hint" class="sidebar-hint">Catch the Pokemon to unlock the full Pokédex entry.</p>
+                <p id="sidebar-hint" class="sidebar-hint">Complete the escape sequence to unlock the full Pokédex entry.</p>
             <div id="retry-area" class="retry-area hidden">
-              <button id="retry-button" class="secondary-btn">Retry Encounter</button>
+                  <button id="retry-button" class="secondary-btn">Retry Escape</button>
             </div>
           </aside>
         </div>
@@ -598,6 +1084,7 @@
         const input = document.getElementById('mobile-catch-input');
         const gameSection = document.getElementById('game-section');
         const captureOverlay = document.getElementById('capture-overlay');
+        const captureCloseButton = document.getElementById('capture-close-btn');
 
         if (!input || !gameSection) {
           return;
@@ -645,13 +1132,22 @@
           chars.forEach(sendKey);
         });
 
-        input.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
-            event.preventDefault();
-          }
-        });
+            input.addEventListener('keydown', (event) => {
+              if (event.key === 'Enter') {
+                event.preventDefault();
+                return;
+              }
+
+              if (/^[a-z0-9]$/i.test(event.key)) {
+                event.stopPropagation();
+              }
+            });
 
         gameSection.addEventListener('pointerdown', focusInput);
+
+        captureCloseButton?.addEventListener('click', () => captureCloseButton.blur(), {
+          capture: true
+        });
 
         new MutationObserver(focusInput).observe(gameSection, {
           attributes: true,

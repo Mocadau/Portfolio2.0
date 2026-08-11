@@ -1,6 +1,6 @@
 import { mount } from 'svelte';
-import Portfolio from '../Portfolio.svelte';
+import App from './App.svelte';
 
-mount(Portfolio, {
+mount(App, {
   target: document.getElementById('app')
 });
