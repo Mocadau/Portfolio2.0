@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/PerForm", "destination": "/perform", "permanent": true },
+    { "source": "/GlobalMigrants", "destination": "/migrants", "permanent": true },
+    { "source": "/Alignspace", "destination": "/alignspace", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/pokemon-case", "destination": "/index.html" },
+    { "source": "/perform", "destination": "/index.html" },
+    { "source": "/migrants", "destination": "/index.html" },
+    { "source": "/alignspace", "destination": "/index.html" }
+  ]
+}
