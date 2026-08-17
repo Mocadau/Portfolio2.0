@@ -2338,23 +2338,17 @@
               <div class="project-card-content">
                 <div class="project-title-row">
                   <h3>{projectWheelFocusProject.title}</h3>
-                  <span
-                    class="project-status"
-                    class:project-status-live={projectWheelFocusProject.status === 'Live'}
-                    class:project-status-muted={!projectWheelFocusProject.href}
-                  >
-                    <span class="project-status-dot" aria-hidden="true"></span>
-                    {projectWheelFocusProject.status}
-                  </span>
+                  {#if projectWheelFocusProject.status === 'Live'}
+                    <span class="project-status project-status-live">
+                      <span class="project-status-dot" aria-hidden="true"></span>
+                      Live
+                    </span>
+                  {/if}
                 </div>
                 <p class="project-summary">{projectWheelFocusProject.description}</p>
                 <div class="project-detail">
                   <div class="project-detail-inner">
                     <p>{projectWheelFocusProject.longDescription}</p>
-                    <div class="project-detail-footer">
-                      <span class="project-focus-label">In focus</span>
-                      <span>Click anywhere to open</span>
-                    </div>
                   </div>
                 </div>
                 <ul aria-label={`${projectWheelFocusProject.title} tags`}>
@@ -2421,14 +2415,12 @@
                   <div class="project-card-content">
                     <div class="project-title-row">
                       <h3>{project.title}</h3>
-                      <span
-                        class="project-status"
-                        class:project-status-live={project.status === 'Live'}
-                        class:project-status-muted={!project.href}
-                      >
-                        <span class="project-status-dot" aria-hidden="true"></span>
-                        {project.status}
-                      </span>
+                      {#if project.status === 'Live'}
+                        <span class="project-status project-status-live">
+                          <span class="project-status-dot" aria-hidden="true"></span>
+                          Live
+                        </span>
+                      {/if}
                     </div>
                     <p class="project-summary">{project.description}</p>
                     <ul aria-label={`${project.title} tags`}>
@@ -3659,23 +3651,25 @@
     grid-template-columns: 94px minmax(0, 1fr);
     gap: 12px;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 32px;
     color: #fff;
     isolation: isolate;
     overflow: hidden;
     text-decoration: none;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.3), transparent 30%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.035) 48%, rgba(255, 255, 255, 0.08)),
-      rgba(7, 9, 11, 0.5);
-    background-blend-mode: screen, normal, normal;
+      radial-gradient(ellipse at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.42), transparent 29%),
+      radial-gradient(ellipse at 12% 112%, rgba(255, 255, 255, 0.16), transparent 42%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.025) 46%, rgba(255, 255, 255, 0.1)),
+      rgba(7, 9, 11, 0.36);
+    background-blend-mode: screen, screen, soft-light, normal;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.32),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.07),
-      inset 14px 0 32px rgba(255, 255, 255, 0.025),
-      0 20px 48px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(28px) saturate(0.84) contrast(1.04);
-    -webkit-backdrop-filter: blur(28px) saturate(0.84) contrast(1.04);
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      inset 16px 0 38px rgba(255, 255, 255, 0.045),
+      inset -18px -16px 42px rgba(0, 0, 0, 0.08),
+      0 24px 56px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(34px) saturate(0.62) brightness(0.82) contrast(1.1);
+    -webkit-backdrop-filter: blur(34px) saturate(0.62) brightness(0.82) contrast(1.1);
     transform:
       translate3d(var(--work-x, 0px), var(--work-y, 0px), 0)
       perspective(900px)
@@ -3695,16 +3689,18 @@
     grid-template-columns: 160px minmax(0, 1fr);
     gap: 16px;
     padding: 12px;
-    border-radius: 32px;
+    border-radius: 36px;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.38), transparent 32%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.04) 48%, rgba(255, 255, 255, 0.09)),
-      rgba(6, 8, 10, 0.57);
+      radial-gradient(ellipse at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.52), transparent 31%),
+      radial-gradient(ellipse at 8% 108%, rgba(255, 255, 255, 0.2), transparent 44%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.03) 46%, rgba(255, 255, 255, 0.11)),
+      rgba(6, 8, 10, 0.4);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-      inset 18px 0 38px rgba(255, 255, 255, 0.03),
-      0 32px 78px rgba(0, 0, 0, 0.38);
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.58),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+      inset 22px 0 44px rgba(255, 255, 255, 0.055),
+      inset -22px -18px 48px rgba(0, 0, 0, 0.1),
+      0 36px 84px rgba(0, 0, 0, 0.4);
     transition:
       min-height 520ms cubic-bezier(0.16, 1, 0.3, 1),
       grid-template-columns 520ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -3715,23 +3711,24 @@
   }
 
   .project-card::before {
-    padding: 1px;
+    padding: 1.35px;
     background: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(255, 255, 255, 0.12) 34%,
-      rgba(255, 255, 255, 0.04) 68%,
-      rgba(255, 255, 255, 0.52)
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 255, 255, 0.2) 30%,
+      rgba(255, 255, 255, 0.035) 62%,
+      rgba(255, 255, 255, 0.7)
     );
   }
 
   .project-card::after {
     inset: 0;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.34), transparent 22%),
-      radial-gradient(circle at 12% 112%, rgba(255, 255, 255, 0.16), transparent 34%),
-      linear-gradient(112deg, transparent 18%, rgba(255, 255, 255, 0.13) 46%, transparent 68%);
-    opacity: 0.24;
+      radial-gradient(ellipse at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.48), transparent 20%),
+      radial-gradient(ellipse at 10% 110%, rgba(255, 255, 255, 0.22), transparent 36%),
+      linear-gradient(112deg, transparent 17%, rgba(255, 255, 255, 0.2) 45%, transparent 67%);
+    opacity: 0.38;
+    filter: blur(0.2px);
     mix-blend-mode: screen;
   }
 
@@ -3743,13 +3740,15 @@
   .project-card:focus-visible {
     z-index: 6;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.42), transparent 30%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.19), rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.1)),
-      rgba(6, 8, 10, 0.5);
+      radial-gradient(ellipse at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.58), transparent 28%),
+      radial-gradient(ellipse at 10% 108%, rgba(255, 255, 255, 0.22), transparent 42%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04) 46%, rgba(255, 255, 255, 0.12)),
+      rgba(6, 8, 10, 0.37);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.44),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-      0 28px 70px rgba(0, 0, 0, 0.4);
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.62),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+      inset 20px 0 42px rgba(255, 255, 255, 0.06),
+      0 32px 76px rgba(0, 0, 0, 0.42);
     transform:
       translate3d(var(--work-x, 0px), calc(var(--work-y, 0px) - 3px), 0)
       perspective(900px)
@@ -3760,7 +3759,7 @@
 
   .project-card:hover::after,
   .project-card:focus-visible::after {
-    opacity: 0.5;
+    opacity: 0.72;
   }
 
   .project-wheel-dragging .project-card,
@@ -3788,12 +3787,16 @@
     border-radius: 22px;
     overflow: hidden;
     background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.025)),
-      rgba(3, 5, 7, 0.46);
+      radial-gradient(ellipse at 18% 0%, rgba(255, 255, 255, 0.3), transparent 42%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.025)),
+      rgba(3, 5, 7, 0.34);
     box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.24),
-      inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      0 12px 28px rgba(0, 0, 0, 0.26);
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.44),
+      inset 0 -14px 24px rgba(0, 0, 0, 0.08),
+      0 14px 32px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px) saturate(0.68);
+    -webkit-backdrop-filter: blur(14px) saturate(0.68);
     animation: projectCardInnerFloat 5.8s ease-in-out var(--float-delay) infinite;
   }
 
@@ -3804,9 +3807,10 @@
     border-radius: inherit;
     content: "";
     background:
-      linear-gradient(155deg, rgba(255, 255, 255, 0.2), transparent 27%),
+      radial-gradient(ellipse at 14% 0%, rgba(255, 255, 255, 0.3), transparent 34%),
+      linear-gradient(155deg, rgba(255, 255, 255, 0.24), transparent 28%),
       linear-gradient(0deg, rgba(0, 0, 0, 0.12), transparent 38%);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
     pointer-events: none;
   }
 
@@ -3903,17 +3907,25 @@
     min-width: 0;
     margin: 0;
     color: #fff;
-    font-size: clamp(0.96rem, 1.12vw, 1.18rem);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
+    font-size: clamp(1.05rem, 1.2vw, 1.3rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
 
   .project-card p {
     margin: 0;
     color: #fff;
-    font-size: 0.7rem;
-    line-height: 1.38;
+    font-size: 0.76rem;
+    line-height: 1.42;
+  }
+
+  .project-card-active h3 {
+    font-size: clamp(1.25rem, 1.48vw, 1.58rem);
+  }
+
+  .project-card-active .project-summary {
+    font-size: 0.8rem;
   }
 
   .project-summary {
@@ -3947,38 +3959,8 @@
     padding-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.14);
     color: #fff;
-    font-size: 0.7rem;
-    line-height: 1.42;
-  }
-
-  .project-detail-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 9px;
-    color: #fff;
-    font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
-    font-size: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .project-focus-label {
-    color: #fff1c4;
-  }
-
-  .project-focus-label::before {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    margin-right: 6px;
-    border-radius: 50%;
-    content: "";
-    background: #fff1c4;
-    box-shadow: 0 0 12px rgba(255, 241, 196, 0.7);
-    vertical-align: 1px;
+    font-size: 0.76rem;
+    line-height: 1.48;
   }
 
   .project-status {
@@ -5440,16 +5422,16 @@
     }
 
     .project-card h3 {
-      font-size: 1.04rem;
+      font-size: 1.13rem;
     }
 
     .project-card p {
-      font-size: 0.73rem;
-      line-height: 1.4;
+      font-size: 0.78rem;
+      line-height: 1.42;
     }
 
     .project-card li {
-      font-size: 0.51rem;
+      font-size: 0.54rem;
     }
 
     .project-card:hover,
@@ -5627,7 +5609,7 @@
     }
 
     .project-card:not(.project-card-active) {
-      min-height: 122px;
+      min-height: 130px;
       grid-template-columns: 94px minmax(0, 1fr);
       gap: 10px;
       padding: 9px;
@@ -5636,7 +5618,7 @@
 
     .project-card:not(.project-card-active) .project-thumb {
       width: 94px;
-      min-height: 102px;
+      min-height: 110px;
       border-radius: 20px;
     }
 
@@ -5662,12 +5644,12 @@
     }
 
     .project-card:not(.project-card-active) h3 {
-      font-size: clamp(0.9rem, 1vw, 1.04rem);
+      font-size: clamp(1.02rem, 1.08vw, 1.16rem);
     }
 
     .project-card:not(.project-card-active) p {
-      font-size: 0.65rem;
-      line-height: 1.34;
+      font-size: 0.71rem;
+      line-height: 1.38;
     }
 
     .project-card:not(.project-card-active) ul {
@@ -5677,7 +5659,7 @@
 
     .project-card:not(.project-card-active) li {
       padding: 0;
-      font-size: 0.47rem;
+      font-size: 0.5rem;
     }
 
     .laserpointer-character {
