@@ -1254,6 +1254,10 @@
     );
   }
 
+  function shouldAdvanceWalkingScene() {
+    return workState === 'walking' && !laserVisible;
+  }
+
   function renderLoop(timestamp) {
     if (!lastFrameTime) {
       lastFrameTime = timestamp;
@@ -1262,7 +1266,7 @@
     const deltaSeconds = Math.min((timestamp - lastFrameTime) / 1000, 0.05);
     lastFrameTime = timestamp;
 
-    if (timestamp <= activeUntil) {
+    if (timestamp <= activeUntil && shouldAdvanceWalkingScene()) {
       frameCursor += scrollDirection * CONSTANT_ANIMATION_FPS * deltaSeconds;
     }
 
