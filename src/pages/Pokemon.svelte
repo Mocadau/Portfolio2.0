@@ -80,7 +80,8 @@
         ]
       }
     ],
-    hideNavigation: true
+    previous: { title: 'Alignspace', href: '/alignspace' },
+    next: { title: 'PerForm', href: '/perform' }
   };
 </script>
 

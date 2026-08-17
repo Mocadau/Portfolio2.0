@@ -100,7 +100,7 @@
       }
     ],
     previous: { title: 'Global Missing Migrants', href: '/migrants' },
-    next: null
+    next: { title: 'Catch Pokémon', href: '/pokemon-case' }
   };
 </script>
 
