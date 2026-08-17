@@ -166,7 +166,7 @@
       {/each}
     </main>
 
-    {#if !project.hideNavigation}
+    {#if !project.hideNavigation && (project.previous || project.next)}
       <nav class="case-nav" aria-label="Project navigation">
         {#if project.previous}
           <a href={project.previous.href}>
@@ -178,11 +178,6 @@
           <a href={project.next.href}>
             <span>Next</span>
             <strong>{project.next.title}</strong>
-          </a>
-        {:else}
-          <a href="/?section=work" data-full-navigation>
-            <span>Back</span>
-            <strong>Selected work</strong>
           </a>
         {/if}
       </nav>
