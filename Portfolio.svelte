@@ -62,6 +62,7 @@
       tags: ['Pokemon', 'Liquid Glass', 'Warsaw'],
       href: '/pokemon-case',
       thumbnail: catchPokemonThumb,
+      thumbnailPosition: '66% 52%',
       status: 'Live',
       side: 'left',
       pointerTarget: { x: 28, y: 30 },
@@ -76,6 +77,7 @@
       tags: ['VR', 'Fitness', 'Invention Design'],
       href: '/perform',
       thumbnail: performThumb,
+      thumbnailPosition: '50% 54%',
       status: 'Case study',
       side: 'left',
       pointerTarget: { x: 24, y: 50 },
@@ -90,6 +92,7 @@
       tags: ['Data Viz', 'Three.js', 'Research'],
       href: '/migrants',
       thumbnail: migrantsThumb,
+      thumbnailPosition: '56% 48%',
       status: 'Case study',
       side: 'left',
       pointerTarget: { x: 30, y: 70 },
@@ -104,6 +107,7 @@
       tags: ['UX Design', 'Prototype', 'Workspace'],
       href: '/alignspace',
       thumbnail: alignspaceThumb,
+      thumbnailPosition: '58% 52%',
       status: 'Case study',
       side: 'right',
       pointerTarget: { x: 70, y: 30 },
@@ -2304,6 +2308,7 @@
               <div
                 class="project-thumb"
                 class:project-thumb-contain={projectWheelFocusProject.thumbnailFit === 'contain'}
+                style={`--thumb-position: ${projectWheelFocusProject.thumbnailPosition ?? '50% 50%'};`}
               >
               {#if projectWheelFocusProject.thumbnail}
                   <img
@@ -2386,6 +2391,7 @@
                   <div
                     class="project-thumb"
                     class:project-thumb-contain={project.thumbnailFit === 'contain'}
+                    style={`--thumb-position: ${project.thumbnailPosition ?? '50% 50%'};`}
                   >
                     {#if project.thumbnail}
                       <img
@@ -3659,16 +3665,17 @@
     overflow: hidden;
     text-decoration: none;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.28), transparent 34%),
-      linear-gradient(135deg, rgba(201, 220, 238, 0.34), rgba(102, 139, 172, 0.2)),
-      rgba(12, 22, 31, 0.48);
+      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.3), transparent 30%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.035) 48%, rgba(255, 255, 255, 0.08)),
+      rgba(7, 9, 11, 0.5);
     background-blend-mode: screen, normal, normal;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-      0 18px 42px rgba(3, 8, 13, 0.22);
-    backdrop-filter: blur(22px) saturate(1.22);
-    -webkit-backdrop-filter: blur(22px) saturate(1.22);
+      inset 0 1px 0 rgba(255, 255, 255, 0.32),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+      inset 14px 0 32px rgba(255, 255, 255, 0.025),
+      0 20px 48px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(28px) saturate(0.84) contrast(1.04);
+    -webkit-backdrop-filter: blur(28px) saturate(0.84) contrast(1.04);
     transform:
       translate3d(var(--work-x, 0px), var(--work-y, 0px), 0)
       perspective(900px)
@@ -3690,13 +3697,14 @@
     padding: 12px;
     border-radius: 32px;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.34), transparent 36%),
-      linear-gradient(135deg, rgba(216, 231, 244, 0.42), rgba(103, 139, 172, 0.24)),
-      rgba(12, 22, 31, 0.54);
+      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.38), transparent 32%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.04) 48%, rgba(255, 255, 255, 0.09)),
+      rgba(6, 8, 10, 0.57);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.36),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-      0 30px 74px rgba(3, 8, 13, 0.32);
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      inset 18px 0 38px rgba(255, 255, 255, 0.03),
+      0 32px 78px rgba(0, 0, 0, 0.38);
     transition:
       min-height 520ms cubic-bezier(0.16, 1, 0.3, 1),
       grid-template-columns 520ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -3710,19 +3718,20 @@
     padding: 1px;
     background: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.78),
-      rgba(255, 255, 255, 0.14) 38%,
-      rgba(223, 240, 255, 0.3) 72%,
-      rgba(255, 255, 255, 0.48)
+      rgba(255, 255, 255, 0.86),
+      rgba(255, 255, 255, 0.12) 34%,
+      rgba(255, 255, 255, 0.04) 68%,
+      rgba(255, 255, 255, 0.52)
     );
   }
 
   .project-card::after {
     inset: 0;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.32), transparent 25%),
-      linear-gradient(112deg, transparent 18%, rgba(255, 255, 255, 0.12) 46%, transparent 68%);
-    opacity: 0.16;
+      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.34), transparent 22%),
+      radial-gradient(circle at 12% 112%, rgba(255, 255, 255, 0.16), transparent 34%),
+      linear-gradient(112deg, transparent 18%, rgba(255, 255, 255, 0.13) 46%, transparent 68%);
+    opacity: 0.24;
     mix-blend-mode: screen;
   }
 
@@ -3734,13 +3743,13 @@
   .project-card:focus-visible {
     z-index: 6;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.34), transparent 34%),
-      linear-gradient(135deg, rgba(218, 232, 246, 0.43), rgba(118, 154, 187, 0.27)),
-      rgba(12, 22, 31, 0.38);
+      radial-gradient(circle at var(--mx, 50%) var(--my, 18%), rgba(255, 255, 255, 0.42), transparent 30%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.19), rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.1)),
+      rgba(6, 8, 10, 0.5);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.34),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-      0 26px 66px rgba(3, 8, 13, 0.32);
+      inset 0 1px 0 rgba(255, 255, 255, 0.44),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      0 28px 70px rgba(0, 0, 0, 0.4);
     transform:
       translate3d(var(--work-x, 0px), calc(var(--work-y, 0px) - 3px), 0)
       perspective(900px)
@@ -3770,6 +3779,7 @@
   }
 
   .project-thumb {
+    position: relative;
     display: grid;
     width: 94px;
     min-height: 98px;
@@ -3778,12 +3788,26 @@
     border-radius: 22px;
     overflow: hidden;
     background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.14)),
-      rgba(235, 242, 248, 0.24);
+      linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.025)),
+      rgba(3, 5, 7, 0.46);
     box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.22),
-      0 10px 24px rgba(4, 10, 16, 0.16);
+      inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 12px 28px rgba(0, 0, 0, 0.26);
     animation: projectCardInnerFloat 5.8s ease-in-out var(--float-delay) infinite;
+  }
+
+  .project-thumb::after {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    content: "";
+    background:
+      linear-gradient(155deg, rgba(255, 255, 255, 0.2), transparent 27%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.12), transparent 38%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    pointer-events: none;
   }
 
   .project-thumb img {
@@ -3791,8 +3815,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: saturate(0.86) contrast(1.04) brightness(0.94);
-    transform: scale(1.015);
+    object-position: var(--thumb-position, 50% 50%);
+    filter: saturate(0.72) contrast(1.06) brightness(0.92);
+    transform: scale(1);
     transition:
       filter 360ms ease,
       transform 520ms cubic-bezier(0.2, 0.75, 0.2, 1);
@@ -3823,8 +3848,8 @@
 
   .project-card:hover .project-thumb img,
   .project-card:focus-visible .project-thumb img {
-    filter: saturate(1) contrast(1.04) brightness(1);
-    transform: scale(1.07);
+    filter: saturate(0.9) contrast(1.06) brightness(0.98);
+    transform: scale(1.035);
   }
 
   .project-thumb img.pixel-thumb {
@@ -4029,19 +4054,19 @@
     flex: none;
     border-radius: 50%;
     content: "";
-    background: #e0be73;
-    box-shadow: 0 0 9px rgba(224, 190, 115, 0.48);
+    background: rgba(255, 241, 196, 0.86);
+    box-shadow: 0 0 9px rgba(255, 241, 196, 0.36);
     transform: none;
   }
 
   .project-card li:nth-child(2)::before {
-    background: #9ac8ed;
-    box-shadow: 0 0 9px rgba(154, 200, 237, 0.46);
+    background: rgba(255, 255, 255, 0.66);
+    box-shadow: 0 0 9px rgba(255, 255, 255, 0.25);
   }
 
   .project-card li:nth-child(3)::before {
-    background: #ff8d76;
-    box-shadow: 0 0 9px rgba(255, 141, 118, 0.44);
+    background: rgba(255, 241, 196, 0.58);
+    box-shadow: 0 0 9px rgba(255, 241, 196, 0.22);
   }
 
   .project-card:focus-visible,
